@@ -22,15 +22,15 @@ const Stack = createStackNavigator<MainList>();
 const Main: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 3000);
-  // }, [isLoading]);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, [isLoading]);
 
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Splash" component={Splash} />
+      {isLoading ? <Stack.Screen name="Splash" component={Splash} /> : null}
       <Stack.Screen name="Dashboard" component={Dashboard} />
     </Stack.Navigator>
   );
