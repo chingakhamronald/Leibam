@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/stack';
 import {FC, useEffect, useState} from 'react';
 import Splash from '../pages/Splash';
-import Dashboard from '../pages/Dashboard';
+import BaseNavigation from './BaseNavigation';
 
 export type MainList = {
   Splash: undefined;
@@ -31,7 +31,7 @@ const Main: FC = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       {isLoading ? <Stack.Screen name="Splash" component={Splash} /> : null}
-      <Stack.Screen name="Dashboard" component={Dashboard} />
+      <Stack.Screen name="Home" component={BaseNavigation} />
     </Stack.Navigator>
   );
 };
