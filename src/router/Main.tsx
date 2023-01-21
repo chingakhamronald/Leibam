@@ -9,7 +9,6 @@ import BaseNavigation from './BaseNavigation';
 
 export type MainList = {
   Splash: undefined;
-  Dashboard: undefined;
 };
 
 export type MainNavProps<T extends keyof MainList> = NavProps<
@@ -31,7 +30,7 @@ const Main: FC = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       {isLoading ? <Stack.Screen name="Splash" component={Splash} /> : null}
-      <Stack.Screen name="Home" component={BaseNavigation} />
+      <Stack.Screen name="Base" component={BaseNavigation} />
     </Stack.Navigator>
   );
 };
