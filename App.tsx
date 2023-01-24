@@ -3,6 +3,7 @@ import {Provider as PaperProvider} from 'react-native-paper';
 import {NavigationContainer} from '@react-navigation/native';
 import Container from './src/container/Container';
 import {SafeAreaView, StyleSheet} from 'react-native';
+import {QueryClient, QueryClientProvider} from 'react-query';
 
 const ProviderWrapper: FC<{children?: React.ReactElement}> = ({children}) => {
   return (
@@ -13,10 +14,14 @@ const ProviderWrapper: FC<{children?: React.ReactElement}> = ({children}) => {
 };
 
 const App = () => {
+  const queryClient = new QueryClient();
+
   return (
     <ProviderWrapper>
       <SafeAreaView style={styles.flexGrow1}>
-        <Container />
+        <QueryClientProvider client={queryClient}>
+          <Container />
+        </QueryClientProvider>
       </SafeAreaView>
     </ProviderWrapper>
   );
